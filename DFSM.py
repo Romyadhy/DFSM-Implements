@@ -18,7 +18,7 @@ class DFSM:
         return current_state in self.accept_states
 
 
-# Definisikan DFSM yang menerima substring "aabb"
+# Definisikan DFSM yang menerima string "aabb"
 states = {'q0', 'q1', 'q2', 'q3', 'q4'}
 alphabet = {'a', 'b'}
 transition_function = {

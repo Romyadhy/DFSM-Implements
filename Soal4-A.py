@@ -43,16 +43,16 @@ accept_states = {('q0', 'even')}
 # Buat DFSM
 dfsm = DFSM(states, alphabet, transition_function, start_state, accept_states)
 
-tesString = ["11000", "1100000", "000001111", "11", "0000000000111111", "001"]
-for string in tesString:
-    result = dfsm.accepts(string)
-    print(f"DFSM accepts '{string}': {result}")
+# tesString = ["11000", "1100000", "000001111", "11", "0000000000111111", "001"]
+# for string in tesString:
+#     result = dfsm.accepts(string)
+#     print(f"DFSM accepts '{string}': {result}")
 
-# # Menerima input dari pengguna
-# input_string = input("Masukkan string biner (0, 1): ")
+# Menerima input dari pengguna
+input_string = input("Masukkan string biner (0, 1): ")
 
-# # Cek apakah string diterima atau tidak
-# if dfsm.accepts(input_string):
-#     print(f"String '{input_string}' diterima oleh DFSM.")
-# else:
-#     print(f"String '{input_string}' tidak diterima oleh DFSM.")
+# Cek apakah string diterima atau tidak
+if dfsm.accepts(input_string):
+    print(f"String '{input_string}' diterima oleh DFSM.")
+else:
+    print(f"String '{input_string}' tidak diterima oleh DFSM.")
