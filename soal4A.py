@@ -19,21 +19,27 @@ class DFSM:
 
 
 # Definisikan DFSM yang menerima string dengan 0 habis dibagi 3 dan 1 genap
-states = {('q0', 'even'), ('q0', 'odd'), ('q1', 'even'), ('q1', 'odd'), ('q2', 'even'), ('q2', 'odd')}
+states = {
+    'q0_even', 'q0_odd', 'q1_even', 'q1_odd', 
+    'q2_even', 'q2_odd'
+}
 alphabet = {'0', '1'}
 transition_function = {
-    (('q0', 'even'), '0'): ('q1', 'even'), (('q0', 'even'), '1'): ('q0', 'odd'),
-    (('q0', 'odd'), '0'): ('q1', 'odd'), (('q0', 'odd'), '1'): ('q0', 'even'),
-    
-    (('q1', 'even'), '0'): ('q2', 'even'), (('q1', 'even'), '1'): ('q1', 'odd'),
-    (('q1', 'odd'), '0'): ('q2', 'odd'), (('q1', 'odd'), '1'): ('q1', 'even'),
-    
-    (('q2', 'even'), '0'): ('q0', 'even'), (('q2', 'even'), '1'): ('q2', 'odd'),
-    (('q2', 'odd'), '0'): ('q0', 'odd'), (('q2', 'odd'), '1'): ('q2', 'even')
-}
-start_state = ('q0', 'even')
-accept_states = {('q0', 'even')}
+    # q0 states (1's count mod 3 == 0)
+    ('q0_even', '0'): 'q0_odd', ('q0_even', '1'): 'q1_even',
+    ('q0_odd', '0'): 'q0_even', ('q0_odd', '1'): 'q1_odd',
 
+    # q1 states (1's count mod 3 == 1)
+    ('q1_even', '0'): 'q1_odd', ('q1_even', '1'): 'q2_even',
+    ('q1_odd', '0'): 'q1_even', ('q1_odd', '1'): 'q2_odd',
+
+    # q2 states (1's count mod 3 == 2)
+    ('q2_even', '0'): 'q2_odd', ('q2_even', '1'): 'q0_even',
+    ('q2_odd', '0'): 'q2_even', ('q2_odd', '1'): 'q0_odd',
+}
+
+start_state = 'q0_even'
+accept_states = {'q0_even'}
 # Buat DFSM
 dfsm = DFSM(states, alphabet, transition_function, start_state, accept_states)
 
@@ -48,4 +54,3 @@ else:
 
 
 
-# note soalnya kebalik wok yang ini kebalik inputnya 0 sm 1
