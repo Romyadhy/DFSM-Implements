@@ -45,3 +45,7 @@ if dfsm.accepts(input_string):
     print(f"String '{input_string}' diterima oleh Mesin.")
 else:
     print(f"String '{input_string}' tidak diterima oleh Mesin.")
+
+
+
+# note soalnya kebalik wok yang ini kebalik inputnya 0 sm 1
